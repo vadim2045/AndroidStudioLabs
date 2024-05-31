@@ -1,0 +1,14 @@
+class Review(private val author: String, private val text: String?) {
+    fun print() {
+        println("Author: $author")
+        println(if (text != null) "Text: $text" else "Text is not available")
+    }
+}
+
+fun main() {
+    val review1 = Review("John Doe", "Great product! I recommend it!")
+    val review2 = Review("Jane Smith", null)
+
+    review1.print()
+    review2.print()
+}

@@ -1,0 +1,77 @@
+abstract class Transport(val name: String) {
+    var currentSpeed = 0
+
+    abstract fun accelerate()
+    abstract fun brake()
+
+    fun start() {
+        println("$name started")
+    }
+
+    fun stop() {
+        println("$name stopped")
+    }
+}
+
+class Car(name: String) : Transport(name) {
+    override fun accelerate() {
+        println("Car accelerating")
+        currentSpeed += 10
+    }
+
+    override fun brake() {
+        println("Car braking")
+        currentSpeed -= 5
+    }
+}
+
+class Bicycle(name: String) : Transport(name) {
+    override fun accelerate() {
+        println("Bicycle accelerating")
+        currentSpeed += 5
+    }
+
+    override fun brake() {
+        println("Bicycle braking")
+        currentSpeed -= 2
+    }
+}
+
+class Motorcycle(name: String) : Transport(name) {
+    override fun accelerate() {
+        println("Motorcycle accelerating")
+        currentSpeed += 15
+    }
+
+    override fun brake() {
+        println("Motorcycle braking")
+        currentSpeed -= 10
+    }
+}
+
+
+fun main() {
+    val car = Car("Porsche")
+    car.start()
+    car.accelerate()
+    car.accelerate()
+    car.brake()
+    println("Car current speed: ${car.currentSpeed}")
+    car.stop()
+
+    val bicycle = Bicycle("BMX")
+    bicycle.start()
+    bicycle.accelerate()
+    bicycle.accelerate()
+    bicycle.brake()
+    println("Bicycle current speed: ${bicycle.currentSpeed}")
+    bicycle.stop()
+
+    val motorcycle = Motorcycle("Yamaha")
+    motorcycle.start()
+    motorcycle.accelerate()
+    motorcycle.accelerate()
+    motorcycle.brake()
+    println("Motorcycle current speed: ${motorcycle.currentSpeed}")
+    motorcycle.stop()
+}
